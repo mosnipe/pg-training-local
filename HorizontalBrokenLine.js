@@ -1,7 +1,7 @@
-for( let i = 0; i <= 1; i++ ) {
-    const Line = String("*");
-    console.log(Line);
-    console.log("　");
+for (let i = 0; i <= 1; i++) {
+    const Line = "*";
+    process.stdout.write(Line);
+    process.stdout.write(" ");
 }
 
-console.log("*");
+process.stdout.write("*\n");
