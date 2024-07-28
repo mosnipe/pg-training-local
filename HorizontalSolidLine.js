@@ -1,6 +1,9 @@
-var lines = ["*"];
+const lineLength = 5;
 
-let num = Number(lines[0]);  
-    for (let i = 0; i < num; i++){
-        console.log(lines.join(''));
-    }
+let line = "";
+
+for (let i = 0; i < lineLength; i++) {
+  line += "*";
+}
+
+console.log(line);
