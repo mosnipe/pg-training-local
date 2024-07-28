@@ -7,31 +7,28 @@ const rl = readline.createInterface({
 
 console.log("**** 長さ比べ ****");
 
-rl.question('1つめの長さ[m]:', (answer) => { 
-    const firstLength = parseInt(answer);
-    rl.question('2つめの長さ[m]:', (answer) => { 
-        const secondLength = parseInt(answer);
-            if(firstLength > secondLength ) {
-                const Longer = String(firstLength);
-                const Shorter = String(secondLength);
-            }
-            else if (secondLength > firstLength) {
-                const Longer = String(secondLength);
-                const Shorter = String(firstLength);
-            }
-            else if (firstLength === secondLength) {
-                const Longer = String("2つの長さは同じです。");
-                const Shorter = String("2つの長さは同じです。");
-            }
-            else{
-                const Longer = String("正しい値が入力されなかったようです。");
-                const Shorter = String("正しい値が入力されなかったようです。");
-            }
-            console.log(Longer);
-            console.log(Shorter);
-            rl.close(); 
+rl.question('1つめの長さ[m]:', (answer1) => { 
+    const firstLength = parseFloat(answer1);
+    rl.question('2つめの長さ[m]:', (answer2) => { 
+        const secondLength = parseFloat(answer2);
+        let Longer, Shorter;
+
+        if (isNaN(firstLength) || isNaN(secondLength)) {
+            Longer = "正しい値が入力されなかったようです。";
+            Shorter = "正しい値が入力されなかったようです。";
+        } else if (firstLength > secondLength) {
+            Longer = String(firstLength);
+            Shorter = String(secondLength);
+        } else if (secondLength > firstLength) {
+            Longer = String(secondLength);
+            Shorter = String(firstLength);
+        } else {
+            Longer = "2つの長さは同じです。";
+            Shorter = "2つの長さは同じです。";
+        }
+
+        console.log(`${Longer}[m]`);
+        console.log(`${Shorter}[m]`);
+        rl.close(); 
     }); 
-    rl.close(); 
-}); 
-
-
+});
